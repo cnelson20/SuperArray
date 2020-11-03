@@ -43,10 +43,15 @@ public class SuperArray {
     }
     data[index] = element;
     size++;
-    
+
   }
   public String remove(int index) {
-    return "";
+    String str = data[index];
+    for (int i = index; i < size - 1; i++) {
+      data[i] = data[i+1];
+    }
+    size--;
+    return str;
   }
   //e
   public String get(int index) {
