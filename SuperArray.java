@@ -1,3 +1,4 @@
+import java.util.Arrays;
 public class SuperArray {
 
   //a:
@@ -7,6 +8,10 @@ public class SuperArray {
   //b:
   public SuperArray() {
     data = new String[10];
+    size = 0;
+  }
+  public SuperArray(int InitalCapacity) {
+    data = new String[InitalCapacity];
     size = 0;
   }
   public SuperArray(String[] arr) {
@@ -25,11 +30,23 @@ public class SuperArray {
     return size;
   }
   //d
-  public boolean add(String element) {
-    if (size >= data.length) {resize(1);}
+  public void add(String element) {
+    if (size >= data.length) {resize((int)(size * .25));}
     data[size] = element;
     size++;
-    return true;
+  }
+
+  public void add(int index, String element) {
+    if (size >= data.length) {resize((int)(size * .25));}
+    for (int i = size; i > index; i--) {
+        data[i] = data[i-1];
+    }
+    data[index] = element;
+    size++;
+    
+  }
+  public String remove(int index) {
+    return "";
   }
   //e
   public String get(int index) {
@@ -62,5 +79,16 @@ public class SuperArray {
       str += data[i];
     }
     return str + "]";
+  }
+  public void clear() {
+    size = 0;
+    data = new String[data.length];
+  }
+  public String[] toArray() {
+    String[] arr = new String[size];
+    for (int i = 0; i < size; i++) {
+      arr[i] = data[i];
+    }
+    return arr;
   }
 }
