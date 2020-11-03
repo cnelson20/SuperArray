@@ -1,11 +1,15 @@
 public class kTester {
   public static void main(String[] args) {
-    SuperArray words = new SuperArray();
-    words.add("kani");
-    words.add("uni");
-    words.add("ebi");
-    for(int i = 0; i < words.size(); i++){
-      System.out.println(words.get(i));
+    SuperArray n = new SuperArray();
+    for (int i = 0; i < 255; i++) {
+      n.add("" + (char)(i));
     }
+    for(int i = 0; i < n.size(); i++){
+      System.out.print(n.get(i));
+    }
+    System.out.println("");
+    System.out.println(n.indexOf("A"));
+    SuperArray n2 = new SuperArray();
+    System.out.println(n2);
   }
 }
