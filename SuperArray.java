@@ -32,13 +32,15 @@ public class SuperArray {
   }
   //d
   public void add(String element) {
-    if (size >= data.length) {resize((int)(size * .25));}
+    if (size >= data.length) {resize((int)Math.ceil(size * .25));}
     data[size] = element;
     size++;
   }
 
   public void add(int index, String element) {
-    if (size >= data.length) {resize((int)(size * .25));}
+    if (size >= data.length) {
+      resize((int)Math.ceil(size * .25));
+    }
     for (int i = size; i > index; i--) {
         data[i] = data[i-1];
     }
@@ -99,23 +101,8 @@ public class SuperArray {
     return arr;
   }
   //nov 4
-  public void removeDuplicates() {
-    for (int i = 0; i < size; i++) {
-      if (indexOf(data[i]) != i) {
-        remove(i);
-        i--;
-      }
-    }
-  }
-  public static SuperArray findOverlap(SuperArray a, SuperArray b) {
-    SuperArray newArr = new SuperArray(Math.min(a.size,b.size));
-    for (int i = 0; i < a.size; i++) {
-      if (b.contains(a.get(i))) {
-        newArr.add(a.get(i));
-      }
-    }
-    newArr.removeDuplicates();
-    return newArr;
+  public int length() {
+    return size;
   }
   public int lastIndexOf(String element) {
     for (int i = size - 1; i >= 0; i--) {
@@ -131,5 +118,8 @@ public class SuperArray {
       if (this.get(i) != other.get(i)) {return false;}
     }
     return true;
+  }
+  public void grow(int a) {
+    resize(a);
   }
 }
