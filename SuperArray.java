@@ -120,5 +120,19 @@ public class SuperArray {
     newArr.removeDuplicates();
     return newArr;
   }
-  public 
+  public int lastIndexOf(String element) {
+    for (int i = size - 1; i >= 0; i--) {
+      if (data[i].equals(element) && element != null) {
+        return i;
+      }
+    }
+    return -1;
+  }
+  public boolean equals(SuperArray other) {
+    if (this.size != other.size) {return false;}
+    for (int i = 0; i < this.size; i++) {
+      if (this.get(i) != other.get(i)) {return false;}
+    }
+    return true;
+  }
 }

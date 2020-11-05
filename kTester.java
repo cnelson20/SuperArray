@@ -22,6 +22,16 @@ public class kTester {
     SuperArray n3 = SuperArray.findOverlap(n2,nTemp);
     System.out.println("\nExpects [d,e,f]");
     System.out.println(n3);
-
+    n3.add("d");
+    System.out.println("\nExpects 0");
+    System.out.println(n3.indexOf("d"));
+    System.out.println("\nExpects 3");
+    System.out.println(n3.lastIndexOf("d"));
+    System.out.println("\nExpects false");
+    System.out.println(n3.equals(n2));
+    String[] temp2 = {"d","e","f","d"};
+    nTemp = new SuperArray(temp2);
+    System.out.println("\nExpects true");
+    System.out.println(n3.equals(nTemp));
   }
 }
