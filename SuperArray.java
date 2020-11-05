@@ -16,6 +16,7 @@ public class SuperArray {
   }
   public SuperArray(String[] arr) {
     data = arr;
+    size = data.length;
   }
   //g:
   private void resize(int x) {
@@ -104,7 +105,20 @@ public class SuperArray {
       if (counted.contains(data[i])) {
         remove(i);
         i--;
+      } else {
+        counted.add(data[i]);
       }
     }
   }
+  public static SuperArray findOverlap(SuperArray a, SuperArray b) {
+    SuperArray newArr = new SuperArray(Math.min(a.size,b.size));
+    for (int i = 0; i < a.size; i++) {
+      if (b.contains(a.get(i))) {
+        newArr.add(a.get(i));
+      }
+    }
+    newArr.removeDuplicates();
+    return newArr;
+  }
+  public 
 }
