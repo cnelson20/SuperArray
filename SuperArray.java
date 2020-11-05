@@ -100,13 +100,10 @@ public class SuperArray {
   }
   //nov 4
   public void removeDuplicates() {
-    SuperArray counted = new SuperArray();
     for (int i = 0; i < size; i++) {
-      if (counted.contains(data[i])) {
+      if (indexOf(data[i]) != i) {
         remove(i);
         i--;
-      } else {
-        counted.add(data[i]);
       }
     }
   }
