@@ -6,9 +6,9 @@ public class kTester {
     System.out.println(n2.toString());
     n2.add(1,"b");
     System.out.println("\nExpects [a,b,c,d]");
-    System.out.println(n2);
+    System.out.println(n2.toString());
     n2.remove(2);
     System.out.println("\nExpects [a,b,d]");
-    System.out.println(n2);
+    System.out.println(n2.toString());
   }
 }

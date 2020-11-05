@@ -59,12 +59,13 @@ public class SuperArray {
   }
   //f
   public String set(int index, String element) {
+    String temp = data[index];
     data[index] = element;
-    return element;
+    return temp;
   }
   public int indexOf(String element) {
-    for (int i = 0; i < size - 1; i++) {
-      if (data[i].equals(element)) {
+    for (int i = 0; i < size; i++) {
+      if (data[i].equals(element) && element != null) {
         return i;
       }
     }
@@ -95,5 +96,15 @@ public class SuperArray {
       arr[i] = data[i];
     }
     return arr;
+  }
+  //nov 4
+  public void removeDuplicates() {
+    SuperArray counted = new SuperArray();
+    for (int i = 0; i < size; i++) {
+      if (counted.contains(data[i])) {
+        remove(i);
+        i--;
+      }
+    }
   }
 }
