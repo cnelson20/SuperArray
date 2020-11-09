@@ -11,6 +11,9 @@ public class SuperArray {
     size = 0;
   }
   public SuperArray(int InitalCapacity) {
+    if (InitalCapacity < 0) {
+      throw new IllegalArgumentException("Inital capacity " + InitalCapacity + " cannot be negative.");
+    }
     data = new String[InitalCapacity];
     size = 0;
   }
@@ -32,14 +35,17 @@ public class SuperArray {
   }
   //d
   public void add(String element) {
-    if (size >= data.length) {resize((int)Math.ceil(size * .25));}
+    if (size >= data.length) {resize(1 + (int)Math.ceil(size * .25));}
     data[size] = element;
     size++;
   }
 
   public void add(int index, String element) {
+    if (index < 0 || index >= size) {
+      throw new IllegalArgumentException("Index " + index + " is out of bounds of SuperArray size " + size " .");
+    }
     if (size >= data.length) {
-      resize((int)Math.ceil(size * .25));
+      resize(1 + (int)Math.ceil(size * .25));
     }
     for (int i = size; i > index; i--) {
         data[i] = data[i-1];
@@ -49,6 +55,9 @@ public class SuperArray {
 
   }
   public String remove(int index) {
+    if (index < 0 || index >= size) {
+      throw new IllegalArgumentException("Index " + index + " is out of bounds of SuperArray size " + size " .");
+    }
     String str = data[index];
     for (int i = index; i < size - 1; i++) {
       data[i] = data[i+1];
@@ -58,10 +67,16 @@ public class SuperArray {
   }
   //e
   public String get(int index) {
+    if (index < 0 || index >= size) {
+      throw new IllegalArgumentException("Index " + index + " is out of bounds of SuperArray size " + size " .");
+    }
     return data[index];
   }
   //f
   public String set(int index, String element) {
+    if (index < 0 || index >= size) {
+      throw new IllegalArgumentException("Index " + index + " is out of bounds of SuperArray size " + size " .");
+    }
     String temp = data[index];
     data[index] = element;
     return temp;
