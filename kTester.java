@@ -49,6 +49,43 @@ public class kTester {
     n3 = new SuperArray(temp4);
     System.out.println("\nExpects [d,0,e,1,f,2,d,3,4]");
     System.out.println(Demo.zip(n3, nTemp));
+    //System.out.println(n3);
+    System.out.println("set()");
+    try {
+      n3.set(-1,"hello");
+    } catch (IllegalArgumentException e) {
+      System.out.println("Error Caught Index out of bounds");
+    } catch (Exception e) {
+      System.out.println("Unknown error occurred");
+      e.printStackTrace();
+    }
+    System.out.println("\nget()");
+    try {
+      n3.get(-1);
+    } catch (IllegalArgumentException e) {
+      System.out.println("Error Caught Index out of bounds");
+    } catch (Exception e) {
+      System.out.println("Unknown error occurred");
+      e.printStackTrace();
+    }
+    System.out.println("\nadd()");
+    try {
+      n3.add(-1,"hello");
+    } catch (IllegalArgumentException e) {
+      System.out.println("Error Caught Index out of bounds");
+    } catch (Exception e) {
+      System.out.println("Unknown error occurred");
+      e.printStackTrace();
+    }
+    System.out.println("\nremove()");
+    try {
+      n3.remove(-1);
+    } catch (IllegalArgumentException e) {
+      System.out.println("Error Caught Index out of bounds");
+    } catch (Exception e) {
+      System.out.println("Unknown error occurred");
+      e.printStackTrace();
+    }
 
 
   }
